@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog Project</title>
+
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar navbar-inverse">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="logo">
+                        <a href="/" style="font-size: 26px;"><em>Blog Lyfe</em></a>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav text-center">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/blogs">Blog</a></li>
+                            <li><a href="/articles/new">Create New Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </header>
+
+    <section id="single-post">
+        <div class="container">
+            <article class="standard-post-format grid-box">
+                <div class="single-post-head text-center">
+                    <div class="post-title">
+                        <h1><em><%= article.title %></em></h1>
+                        <p><%= article.createdAt.toLocaleDateString() %></p>
+
+                    </div>
+                </div>
+
+                <div id="myCarousel" class="carousel slide post-slider">
+                    <div class="carousel-inner">
+                        <div class="item active"><img src="<%= article.imageUrl %>"></div>
+                    </div>
+                </div>
+
+                <div class="the-post">
+                    <div class="post_content">
+                        <p><%= article.markdown %>
+                        </p>
+                        <div >
+                            <a href="/articles/edit/<%= article.id %>" class="btn btn-secondary" style="margin-bottom: 8px">Edit Article</a>
+                           
+                            <form action="/articles/<%= article.id %>?_method=DELETE" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger ">Delete</button>
+                            </form>
+
+                        </div>
+                      
+                    </div>
+                </div>
+            </article>
+
+
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="follow_us">
+                <a href="/" style="font-size: 26px;"><em>Blog Lyfe</em></a>
+            <p style="color: black;">This is our Final Semester Project. Hope you'll like it. <br> Thank you <br></p>
+                <ul>
+                    <li>Muhammad Uzair <b>|</b></li>
+                    <li>Syed Attabik Ali Shah <b>|</b></li>
+                    <li>Adil Naeem <b>|</b></li>
+                    <li>Sheraz Hussain</li>
+                </ul>
+        </div>
+    </footer>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+</body>
+
+</html>
